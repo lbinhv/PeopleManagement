@@ -6,11 +6,11 @@ namespace PeopleManagement.Model.Models
     public class User
     {
         public Guid UserId { get; set; }
-        public int NRIC { get; set; }
+        public string NRIC { get; set; }
         public string Name { get; set; }
-        public string Gender { get; set; }
-        public decimal Birthday { get; set; }
-        public string AvaiableDate { get; set; }
+        public char Gender { get; set; }
+        public DateTime Birthday { get; set; }
+        public DateTime AvaiableDate { get; set; }
         public virtual IEnumerable<Subject> Subjects { get; set; }
 
         public DateTime? DateCreated { get; set; }

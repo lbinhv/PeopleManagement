@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleManagement", "PeopleM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleManagement.Model", "..\PeopleManagement.Model\PeopleManagement.Model.csproj", "{046194E3-1947-4651-86EB-1596FB06522E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleManagement.Data", "..\PeopleManagement.Data\PeopleManagement.Data.csproj", "{BC9C17B6-5122-46AC-9263-C17ABE3C36AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{046194E3-1947-4651-86EB-1596FB06522E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{046194E3-1947-4651-86EB-1596FB06522E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{046194E3-1947-4651-86EB-1596FB06522E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC9C17B6-5122-46AC-9263-C17ABE3C36AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC9C17B6-5122-46AC-9263-C17ABE3C36AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC9C17B6-5122-46AC-9263-C17ABE3C36AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC9C17B6-5122-46AC-9263-C17ABE3C36AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

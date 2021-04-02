@@ -20,3 +20,13 @@
 /PeopleManagement.Model/obj/Debug
 /PeopleManagement.Model/Properties/AssemblyInfo.cs
 /PeopleManagement.Model/bin/Debug
+/PeopleManagement/packages/EntityFramework.6.4.4/build
+/PeopleManagement/packages/EntityFramework.6.4.4/buildTransitive
+/PeopleManagement/packages/EntityFramework.6.4.4/content/net40
+/PeopleManagement/packages/EntityFramework.6.4.4/lib
+/PeopleManagement/packages/EntityFramework.6.4.4/tools
+/PeopleManagement/packages/EntityFramework.6.4.4/Icon.png
+/PeopleManagement/packages/EntityFramework.6.4.4/EntityFramework.6.4.4.nupkg
+/PeopleManagement/packages/EntityFramework.6.4.4/.signature.p7s
+/PeopleManagement.Data/bin/Debug
+/PeopleManagement.Data/obj/Debug
