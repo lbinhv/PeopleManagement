@@ -1,0 +1,19 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/PeopleManagement/.vs/PeopleManagement
+/PeopleManagement/bin
+/PeopleManagement/obj/Debug
+/PeopleManagement/packages/Microsoft.AspNet.Mvc.5.2.7/Content
+/PeopleManagement/packages/Microsoft.AspNet.Mvc.5.2.7/lib/net45
+/PeopleManagement/packages/Microsoft.AspNet.Mvc.5.2.7
+/PeopleManagement/packages/Microsoft.AspNet.Razor.3.2.7
+/PeopleManagement/packages/Microsoft.AspNet.WebPages.3.2.7
+/PeopleManagement/packages/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1/build
+/PeopleManagement/packages/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1/content
+/PeopleManagement/packages/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1/lib/net45
+/PeopleManagement/packages/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1/tools
+/PeopleManagement/packages/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1
+/PeopleManagement/packages/Microsoft.Web.Infrastructure.1.0.0.0
+/PeopleManagement/Properties/AssemblyInfo.cs
