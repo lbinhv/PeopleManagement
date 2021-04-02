@@ -17,3 +17,6 @@
 /PeopleManagement/packages/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1
 /PeopleManagement/packages/Microsoft.Web.Infrastructure.1.0.0.0
 /PeopleManagement/Properties/AssemblyInfo.cs
+/PeopleManagement.Model/obj/Debug
+/PeopleManagement.Model/Properties/AssemblyInfo.cs
+/PeopleManagement.Model/bin/Debug
