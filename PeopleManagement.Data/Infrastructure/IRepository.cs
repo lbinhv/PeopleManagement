@@ -21,5 +21,6 @@ namespace PeopleManagement.Data.Infrastructure
         IEnumerable<T> GetAll();
         // Gets entities using delegate
         IEnumerable<T> GetMany(Expression<Func<T, bool>> where);
+        T FirstOne(Expression<Func<T, bool>> condition);
     }
 }

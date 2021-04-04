@@ -41,11 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonViewModels\Column.cs" />
+    <Compile Include="CommonViewModels\DataTableAjaxPostModel.cs" />
+    <Compile Include="CommonViewModels\Order.cs" />
+    <Compile Include="CommonViewModels\Search.cs" />
+    <Compile Include="Helpers\Enums.cs" />
     <Compile Include="Interfaces\ISubjectService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
+    <Compile Include="Interfaces\IUserSubjectsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\SubjectService.cs" />
     <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\UserSubjectsService.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

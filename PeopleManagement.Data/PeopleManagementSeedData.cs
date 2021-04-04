@@ -2,17 +2,21 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PeopleManagement.Data
 {
     public class PeopleManagementSeedData : DropCreateDatabaseIfModelChanges<PeopleManagementEntities>
     {
+        public PeopleManagementSeedData(PeopleManagementEntities dbContext)
+        {
+            Seed(dbContext);
+        }
         protected override void Seed(PeopleManagementEntities context)
         {
-            
+            GetUsers().ForEach(c => context.Users.Add(c));
+            GetSubjects().ForEach(g => context.Subjects.Add(g));
+
+            context.Commit();
         }
 
         private static List<User> GetUsers()
@@ -21,17 +25,19 @@ namespace PeopleManagement.Data
             {
                 new User
                 {
+                    UserId = Guid.NewGuid(),
                     NRIC = "S1234567A",
                     Name = "Tom",
-                    Gender = char.Parse("M"),
+                    Gender = "M", 
                     Birthday = new DateTime(1990,01,01),
                     AvaiableDate = DateTime.Now
                 },
                 new User
                 {
+                    UserId = Guid.NewGuid(),
                     NRIC = "S7654321A",
                     Name = "Green",
-                    Gender = char.Parse("F"),
+                    Gender = "F", 
                     Birthday = new DateTime(1999,11,21),
                     AvaiableDate = DateTime.Now
                 }
@@ -44,8 +50,18 @@ namespace PeopleManagement.Data
             {
                 new Subject
                 {
-                    SubjectName = "English",
-                    UserId = Guid.NewGuid()
+                    SubjectId = Guid.NewGuid(),
+                    SubjectName = "English"
+                },
+                new Subject
+                {
+                    SubjectId = Guid.NewGuid(),
+                    SubjectName = "Math"
+                },
+                new Subject
+                {
+                    SubjectId = Guid.NewGuid(),
+                    SubjectName = "Science"
                 }
             };
         }

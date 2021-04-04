@@ -75,6 +75,12 @@ namespace PeopleManagement.Data.Infrastructure
         {
             return _dbSet.Where(where).FirstOrDefault<T>();
         }
+
+        public T FirstOne(Expression<Func<T, bool>> condition)
+        {
+            return _dbSet.Where(condition).FirstOrDefault();
+        }
+
         #endregion
     }
 }

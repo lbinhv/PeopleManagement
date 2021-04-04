@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Simple Search Tool</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    @Scripts.Render("~/bundles/jquery")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+
+    <div id="page-container">
+        <div id="content_header">
+            <div id="site_title"><a href="#">Simple Search Tool</a></div>
+        </div>
+
+        <div id="content_menu">
+            <ul>
+                <li><a href='@Url.Action("Index", "Home")' class="home"><span></span></a></li>
+            </ul>
+        </div>
+
+        <div id="content_main">
+            @RenderBody()
+            <!-- END of home -->
+        </div> <!-- END of -->
+        <div id="spinner-loading">
+            <img src="@Url.Content("~/Images/spinner.gif")" alt="Loading..." />
+        </div>
+        <div class="footer">
+            Develop by Binh LE
+        </div>
+    </div>
+
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/common")
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    @RenderSection("PluginScripts", required: false)
+    @RenderSection("Scripts", required: false)
+    <script type="text/javascript">
+        $(function () {
+            $('.datepicker').datepicker();
+        });
+    </script>
+
+</body>
+</html>

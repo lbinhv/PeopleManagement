@@ -7,9 +7,8 @@ namespace PeopleManagement.Data.Configuration
     {
         public SubjectEntityTypeConfiguration()
         {
-            ToTable("Subjects");
-            Property(g => g.SubjectName).IsRequired().HasMaxLength(10);
-            Property(g => g.UserId).IsRequired();
+            ToTable("Subjects").HasKey(k => k.SubjectId);
+            Property(g => g.SubjectName).IsRequired().HasMaxLength(50);
         }
     }
 }

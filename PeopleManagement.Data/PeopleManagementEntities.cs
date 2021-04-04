@@ -17,6 +17,7 @@ namespace PeopleManagement.Data
 
         public DbSet<User> Users { get; set; }
         public DbSet<Subject> Subjects { get; set; }
+        public DbSet<UserSubject> UserSubjects { get; set; }
 
         public virtual void Commit()
         {
@@ -32,6 +33,7 @@ namespace PeopleManagement.Data
         {
             modelBuilder.Configurations.Add(new UserEntityTypeConfiguration());
             modelBuilder.Configurations.Add(new SubjectEntityTypeConfiguration());
+            modelBuilder.Configurations.Add(new UserSubjectEntityTypeConfiguration());
         }
     }
 }

@@ -1,16 +1,14 @@
 ﻿using PeopleManagement.Model.Models;
-using System;
+using PeopleManagement.Service.CommonViewModels;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PeopleManagement.Service.Interfaces
 {
     public interface IUserService
-    {        
-        IEnumerable<User> GetUsers();
+    {
+        bool CheckNRIC(string value);
+        IEnumerable<User> GetUsers(DataTableAjaxPostModel model, out int filteredResultsCount, out int totalResultsCount);
         void CreateUser(User user);
-        void SaveUser();
+        User GetUserByKey(string key);
     }
 }
