@@ -12,8 +12,7 @@ namespace PeopleManagement
         {
             // Init database
             var db = new PeopleManagementEntities();
-           // db.Database.Initialize(true);
-           // System.Data.Entity.Database.SetInitializer(new PeopleManagementSeedData(db));
+           System.Data.Entity.Database.SetInitializer(new PeopleManagementSeedData(db));
             
 
             AreaRegistration.RegisterAllAreas();
@@ -22,6 +21,7 @@ namespace PeopleManagement
 
             // Autofac and AutoMapper configurations
             Bootstrapper.Run();
+
         }
     }
 }

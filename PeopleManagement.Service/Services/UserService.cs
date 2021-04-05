@@ -2,8 +2,8 @@
 using PeopleManagement.Data.Repositories;
 using PeopleManagement.Model.Models;
 using PeopleManagement.Service.CommonViewModels;
+using PeopleManagement.Service.Helpers;
 using PeopleManagement.Service.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using static PeopleManagement.Service.Helpers.Enums;
@@ -15,14 +15,20 @@ namespace PeopleManagement.Service.Services
         #region Global Variable
         private readonly IUserRepository _userRepository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IUserSubjectsService _userSubjectsService;
+        public readonly IUserSubjectsRepository _userSubjectsRepository;
         #endregion
 
         #region Contructor
         public UserService(IUserRepository userRepository,
-            IUnitOfWork unitOfWork)
+            IUnitOfWork unitOfWork,
+            IUserSubjectsService userSubjectsService,
+            IUserSubjectsRepository userSubjectsRepository)
         {
             _userRepository = userRepository;
             _unitOfWork = unitOfWork;
+            _userSubjectsService = userSubjectsService;
+            _userSubjectsRepository = userSubjectsRepository;
         }
         #endregion
 
@@ -30,6 +36,8 @@ namespace PeopleManagement.Service.Services
         public void CreateUser(User user)
         {
             _userRepository.Add(user);
+            _userSubjectsService.CreateUserSubjects(user.Subjects, user.UserId);
+
             _unitOfWork.Commit();
         }
 
@@ -55,7 +63,6 @@ namespace PeopleManagement.Service.Services
 
             // search the dbase taking into consideration table sorting and paging
             var entities = _userRepository.GetAll();
-
             // have value search
             if (!string.IsNullOrEmpty(searchBy))
             {
@@ -73,7 +80,12 @@ namespace PeopleManagement.Service.Services
 
             filteredResultsCount = entities.Count();
 
-            return entities.Skip(skip).Take(take).ToList();
+            var listUser = entities.Skip(skip).Take(take).ToList();
+            foreach (var user in listUser)
+            {
+                user.Subjects = _userSubjectsRepository.GetAll().Where(m => m.UserId == user.UserId);
+            }
+            return listUser;
         }
 
         public bool CheckNRIC(string value)
@@ -89,26 +101,40 @@ namespace PeopleManagement.Service.Services
         public User GetUserByKey(string key)
         {
             var data = _userRepository.Get(m => m.NRIC == key);
-            var userData = new User();
 
             if (data != null)
             {
-                userData = new User
-                {
-                    UserId = data.UserId,
-                    NRIC = data.NRIC,
-                    AvaiableDate = data.AvaiableDate,
-                    Birthday = data.Birthday,
-                    Subjects = data.Subjects.Select(m => new UserSubject
-                    {
-                        UserId = m.UserId,
-                        SubjectId = m.SubjectId,
-                    })
-                };
-
-                return userData;
+                data.Subjects = _userSubjectsRepository.GetAll().Where(m => m.UserId == data.UserId);
+                return data;
             }
             return null;
+        }
+
+        public ErrorModel UpdateUser(User user)
+        {
+            var error = new ErrorModel();
+            var existUser = _userRepository.FirstOne(m => m.UserId == user.UserId);
+            if (existUser != null)
+            {
+                //If the NRIC is changed
+                if (user.NRIC != existUser.NRIC)
+                {
+                    //Check if the new NRIC value is exist
+                    var nRICChanged = _userRepository.FirstOne(m => m.NRIC.Equals(user.NRIC));
+                    if (nRICChanged != null)
+                    {
+                        error.IsError = true;
+                        error.ErrorContent = Const.NRICExist;
+                        error.Element = Const.NRIC;
+                        return error;
+                    }
+                }
+                _userRepository.Update(user.UserId, user);
+                _userSubjectsService.CreateUserSubjects(user.Subjects, user.UserId);
+
+                _unitOfWork.Commit();
+            }
+            return error;
         }
         #endregion
     }

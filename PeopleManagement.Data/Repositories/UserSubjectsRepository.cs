@@ -7,5 +7,10 @@ namespace PeopleManagement.Data.Repositories
     {
         public UserSubjectsRepository(IDbFactory dbFactory) : base(dbFactory)
         { }
+
+        public void Update(UserSubject entity)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

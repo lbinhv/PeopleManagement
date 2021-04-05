@@ -38,10 +38,10 @@ namespace PeopleManagement.Data.Infrastructure
             _dbSet.Add(entity);
         }
 
-        public virtual void Update(T entity)
+        public virtual void Update(Guid id,T entity)
         {
-            _dbSet.Attach(entity);
-            _dataContext.Entry(entity).State = EntityState.Modified;
+            var existingEntity =  _dbSet.Find(id);
+            _dataContext.Entry(existingEntity).CurrentValues.SetValues(entity);
         }
 
         public virtual void Delete(T entity)

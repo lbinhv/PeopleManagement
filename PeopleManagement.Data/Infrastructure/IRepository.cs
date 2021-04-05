@@ -9,7 +9,7 @@ namespace PeopleManagement.Data.Infrastructure
         // Create an entity as new
         void Add(T entity);
         // Update an entity as modified
-        void Update(T entity);
+        void Update(Guid Id, T entity);
         // Delete an entity to be removed
         void Delete(T entity);
         void Delete(Expression<Func<T, bool>> where);

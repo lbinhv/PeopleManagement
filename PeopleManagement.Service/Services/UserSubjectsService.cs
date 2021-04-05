@@ -39,8 +39,6 @@ namespace PeopleManagement.Service.Services
             {
                 _userSubjectsRepository.Add(item);
             }
-
-            _unitOfWork.Commit();
         }
 
         #endregion

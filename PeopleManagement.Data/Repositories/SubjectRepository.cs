@@ -9,5 +9,10 @@ namespace PeopleManagement.Data.Repositories
         {
 
         }
+
+        public void Update(Subject entity)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

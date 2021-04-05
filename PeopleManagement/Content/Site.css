@@ -33,6 +33,9 @@ a, a:link, a:visited {
         background: url(../images/go_to_top.png) scroll 0 3px no-repeat
     }
 
+    label{
+        margin-left: 5px;
+    }
 p {
     margin: 0 0 10px 0;
     padding: 0;

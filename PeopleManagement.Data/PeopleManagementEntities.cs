@@ -34,6 +34,7 @@ namespace PeopleManagement.Data
             modelBuilder.Configurations.Add(new UserEntityTypeConfiguration());
             modelBuilder.Configurations.Add(new SubjectEntityTypeConfiguration());
             modelBuilder.Configurations.Add(new UserSubjectEntityTypeConfiguration());
+            modelBuilder.Configurations.Add(new SerilogEntityTypeConfiguration());
         }
     }
 }

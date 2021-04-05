@@ -17,10 +17,12 @@ namespace PeopleManagement.Data.Repositories
             return user;
         }
 
-        public override void Update(User entity)
+        public override void Update(Guid Id, User entity)
         {
             entity.DateUpdated = DateTime.Now;
-            base.Update(entity);
+            
+            base.Update(entity.UserId, entity);
         }
+
     }
 }

@@ -5,7 +5,9 @@ namespace PeopleManagement.Models
     public class UserViewModel
     {
         public Guid UserId { get; set; }
-        public Guid SN { get; set; }
+        public int SN { get; set; }
+       // public int SNTest { get; set; }
+
         public string NRIC { get; set; }
         public string Name { get; set; }
         public string Gender { get; set; }

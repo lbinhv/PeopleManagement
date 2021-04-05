@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\SerilogEntityTypeConfiguration.cs" />
     <Compile Include="Configuration\SubjectEntityTypeConfiguration.cs" />
     <Compile Include="Configuration\UserEntityTypeConfiguration.cs" />
     <Compile Include="Configuration\UserSubjectEntityTypeConfiguration.cs" />
@@ -64,6 +65,10 @@
     <Compile Include="Migrations\202104021809247_InitialCreate.cs" />
     <Compile Include="Migrations\202104021809247_InitialCreate.designer.cs">
       <DependentUpon>202104021809247_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104050347152_MCreateSerilogTable.cs" />
+    <Compile Include="Migrations\202104050347152_MCreateSerilogTable.designer.cs">
+      <DependentUpon>202104050347152_MCreateSerilogTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,6 +94,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202104021809247_InitialCreate.resx">
       <DependentUpon>202104021809247_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104050347152_MCreateSerilogTable.resx">
+      <DependentUpon>202104050347152_MCreateSerilogTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

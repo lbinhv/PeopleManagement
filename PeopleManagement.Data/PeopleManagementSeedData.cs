@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 
 namespace PeopleManagement.Data
 {
@@ -13,12 +14,19 @@ namespace PeopleManagement.Data
         }
         protected override void Seed(PeopleManagementEntities context)
         {
-            GetUsers().ForEach(c => context.Users.Add(c));
-            GetSubjects().ForEach(g => context.Subjects.Add(g));
+            GetUsers().Where(u => !context.Users.Select(cu => cu.NRIC)
+                      .Contains(u.NRIC))
+                      .ToList()
+                      .ForEach(u => context.Users.Add(u));
 
-            context.Commit();
+            GetSubjects().Where(s => !context.Subjects.Select(cs => cs.SubjectName)
+                         .Contains(s.SubjectName))
+                         .ToList()
+                         .ForEach(s => context.Subjects.Add(s));
+
+            context.Commit();   
         }
-
+            
         private static List<User> GetUsers()
         {
             return new List<User>
@@ -28,7 +36,7 @@ namespace PeopleManagement.Data
                     UserId = Guid.NewGuid(),
                     NRIC = "S1234567A",
                     Name = "Tom",
-                    Gender = "M", 
+                    Gender = "M",
                     Birthday = new DateTime(1990,01,01),
                     AvaiableDate = DateTime.Now
                 },
@@ -37,7 +45,7 @@ namespace PeopleManagement.Data
                     UserId = Guid.NewGuid(),
                     NRIC = "S7654321A",
                     Name = "Green",
-                    Gender = "F", 
+                    Gender = "F",
                     Birthday = new DateTime(1999,11,21),
                     AvaiableDate = DateTime.Now
                 }
@@ -51,7 +59,8 @@ namespace PeopleManagement.Data
                 new Subject
                 {
                     SubjectId = Guid.NewGuid(),
-                    SubjectName = "English"
+                    SubjectName = "English",
+
                 },
                 new Subject
                 {

@@ -36,8 +36,7 @@
                 {
                     "data": "NRIC",
                     "render": function (data, type, full, meta) {
-                        var img = '';
-                        return '<a href="https://www.w3schools.com">' + data + '</a>';
+                        return '<a href="' + window.location.href +'Home/Register?key='+ data +'">' + data + '</a>';
                     }
                 },
                 { "data": "Name" },

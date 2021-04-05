@@ -14,7 +14,8 @@ namespace PeopleManagement.Infrastructure
         {
             ///TO DO
             CreateMap<User, UserViewModel>()
-                .ForMember(dest => dest.SN, opt => opt.MapFrom(src => src.UserId))
+                //.ForMember(dest => dest.SN, opt => opt.MapFrom(src => src.UserId))
+                .ForMember(dest => dest.SN, opt => opt.Ignore())
                 .ForMember(dest => dest.NumberOfSubjects, opt => opt.MapFrom(src => src.Subjects.Count()))
                 .ForMember(dest => dest.Age, opt => opt.MapFrom(src => Extentions.CalculateAge(src.Birthday)))
                 .ForMember(dest => dest.Gender, opt => opt.MapFrom(src => src.Gender == "M" ? (char)GenderEnum.Male : (char)GenderEnum.Female ));
@@ -22,6 +23,13 @@ namespace PeopleManagement.Infrastructure
             CreateMap<Subject, SubjectModel>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.SubjectId))
                 .ForMember(dest => dest.SubjectName, opt => opt.MapFrom(src => src.SubjectName));
+
+            CreateMap<User, UserModel>()                
+                .ForMember(dest => dest.Subjects, opt => opt.Ignore())
+                .ForMember(dest => dest.IsEdit, opt => opt.Ignore());
+
+            CreateMap<UserModel, User>()
+                .ForMember(dest => dest.Subjects, opt => opt.Ignore());
         }
     }
 

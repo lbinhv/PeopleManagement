@@ -10,5 +10,7 @@ namespace PeopleManagement.Service.Interfaces
         IEnumerable<User> GetUsers(DataTableAjaxPostModel model, out int filteredResultsCount, out int totalResultsCount);
         void CreateUser(User user);
         User GetUserByKey(string key);
+        ErrorModel UpdateUser(User user);
+
     }
 }
